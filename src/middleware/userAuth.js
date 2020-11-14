@@ -20,6 +20,6 @@ module.exports = async (req, res, next) => {
         next()
     } catch (error) {
         console.log(error)
-        res.redirect('index')
+        res.redirect('/')
     }
 }

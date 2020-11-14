@@ -26,11 +26,7 @@ router.post('/login', async (req, res) => {
         res.cookie('authorization', token, {
             httpOnly: false,
         })
-        res.render("adminHome")
-        // res.status(200).send({
-        //     message:
-        //         'Successfully logged in. You can now access the admin portal',
-        // })
+        res.render('adminHome')
     } catch (error) {
         console.log(error)
         res.send(500).send(error)
@@ -39,7 +35,7 @@ router.post('/login', async (req, res) => {
 
 router.get('/logout', async (req, res) => {
     res.clearCookie('authorization')
-    res.render("index")
+    res.redirect('/')
     return
 })
 
