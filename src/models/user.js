@@ -24,15 +24,28 @@ const userSchema = new Schema(
     },
     {
         timestamps: true,
+        toJSON: {
+            virtuals: true,
+        },
+        toObject: {
+            virtuals: true,
+        },
     }
 )
+
+userSchema.index({ username: 'text' })
+
+userSchema.virtual('posts', {
+    ref: 'Post',
+    localField: '_id',
+    foreignField: 'author',
+})
 
 userSchema.methods.toJSON = function () {
     const user = this
     const userObject = user.toObject()
 
     delete userObject.password
-    delete userObject.tokens
 
     return userObject
 }

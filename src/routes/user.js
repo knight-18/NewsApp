@@ -4,6 +4,8 @@ const jwt = require('jsonwebtoken')
 const User = require('../models/user')
 const isLoggedIn = require('../utils/isLoggedIn')
 const userAuth = require('../middleware/userAuth')
+const Post = require('../models/Post/post')
+const user = require('../models/user')
 
 router.get('/login', async (req, res) => {
     try {
@@ -93,8 +95,13 @@ router.post('/signup', async (req, res) => {
 
 router.get('/profile', userAuth, async (req, res) => {
     try {
-        console.log('Logged In User:', req.user)
-        res.render('userProfile')
+        let user = req.user
+        let posts = await user.populate('posts').execPopulate()
+        // console.log(posts)
+        console.log(user)
+        res.render('userProfile', {
+            user,
+        })
     } catch (error) {
         console.log(error)
         res.redirect('/')
