@@ -11,5 +11,5 @@
 - Logout Route - /user/logout
 - Admin Login - /admin/login
 - Admin Logout - /admin/logout
-- Create Post - /post
+- Create Post - /post/
 - Get post - /post/:id
