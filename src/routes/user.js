@@ -11,13 +11,13 @@ router.get('/login', async (req, res) => {
     try {
         let alreadyLoggedIn = await isLoggedIn(req, res)
         if (!alreadyLoggedIn) {
-            res.render('userLogin')
+            res.render('userSignup')
             return
         }
         res.redirect('/')
     } catch (error) {
         console.log(error)
-        res.render('userLogin')
+        res.render('userSignup')
     }
 })
 

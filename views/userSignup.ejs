@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,4 +14,107 @@
         <button type="submit">Signup</button>
     </form>
 </body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+
+    <link rel="stylesheet" type="text/css" href="/css/foresty.css">
+    <link rel="stylesheet" href="/css/common.css" />
+    <link rel="stylesheet" href="/css/signin-signup.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/index/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="/css/index/animate.css">
+
+    <link rel="stylesheet" href="/css/index/owl.carousel.min.css">
+    <link rel="stylesheet" href="/css/index/owl.theme.default.min.css">
+
+    <link rel="stylesheet" href="/css/index/icomoon.css">
+    <!-- <link rel="stylesheet" href="/css/index/style.css"> -->
+    <link rel="stylesheet" href="/css/navbar/navbar.css">
+</head>
+
+<body style="background-image: url(/images/signup-background.jpg); background-repeat: no-repeat; background-size: cover ;">
+    <!--Navbar Starts-->
+    <%-include('partials/navbar')%>
+    <!---Navbar Ends-->
+
+    <section class="main">
+        <div class="login-wrap">
+            <div class="login-html">
+                <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign
+                    In</label>
+                <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+                <div class="login-form">
+                    <div class="sign-in-htm">
+                        <section ng-app="login" ng-controller="loginCtrl" ng-class="{shake: ui.shake }">
+                            <!-- <div ng-if="alert" class="info"
+                                ng-class="{error : alert.type == 'error', good: alert.type == 'good'}">
+                                <p>{{ alert.message }}</p>
+                            </div> -->
+                            <div class="group">
+                                <label for="login" class="label">Email</label>
+                                <input type="text" name="email" class="input" ng-model="login">
+                            </div>
+                            <div class="group">
+                                <label for="pwd" class="label">Password</label>
+                                <input type="password" name="password" ng-model="pwd" class="input" data-type="password">
+                            </div>
+                            <div class="group">
+                                <input type="submit" class="button" value="Sign In" ng-click="loginaction()">
+                            </div>
+                        </section>
+                        <div class="hr"></div>
+                        <div class="foot-lnk">
+                            <a href="#forgot">Forgot Password?</a>
+                        </div>
+                    </div>
+                    <div class="sign-up-htm">
+                        <div class="group">
+                            <label for="user" class="label">Username</label>
+                            <input id="user" type="text" class="input">
+                        </div>
+                        <div class="group">
+                            <label for="pass" class="label">Password</label>
+                            <input id="pass" type="password" class="input" data-type="password">
+                        </div>
+                        <div class="group">
+                            <label for="pass" class="label">Repeat Password</label>
+                            <input id="pass" type="password" class="input" data-type="password">
+                        </div>
+                        <div class="group">
+                            <label for="pass" class="label">Email Address</label>
+                            <input id="pass" type="text" class="input">
+                        </div>
+                        <div class="group">
+                            <input type="submit" class="button" value="Sign Up">
+                        </div>
+                        <div class="hr"></div>
+                        <div class="foot-lnk">
+                            <label for="tab-1">Already Member?</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="/js/index/jquery.min.js"></script>
+    <script src="/js/index/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/index/jquery.easing.1.3.js"></script>
+    <script src="/js/index/jquery.waypoints.min.js"></script>
+    <script src="/js/index/owl.carousel.min.js"></script>
+    <script src="/js/index/jquery.animateNumber.min.js"></script>
+    <script src="/js/index/main.js"></script>
+</body>
+
 </html>

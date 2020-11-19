@@ -1,147 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
-   
-    <link rel="stylesheet" type="text/css" href="/css/foresty.css" >
-    <link rel="stylesheet" href="/css/common.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-   
+  <title>NewsApp</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/index/open-iconic-bootstrap.min.css">
+  <link rel="stylesheet" href="/css/index/animate.css">
+
+  <link rel="stylesheet" href="/css/index/owl.carousel.min.css">
+  <link rel="stylesheet" href="/css/index/owl.theme.default.min.css">
+
+  <link rel="stylesheet" href="/css/index/icomoon.css">
+  <link rel="stylesheet" href="/css/index/style.css">
 </head>
 
-<body>
+<body data-spy="scroll" data-target="#ftco-navbar" data-offset="200">
 
-  <!-- navbar start -->
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <a class="navbar-brand" href="index.ejs">NewsApp</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <!--Navbar Starts-->
+  <%-include('partials/navbar')%>
+  <!---Navbar Ends-->
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Notifications <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Latest Blogs</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Category
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href='/signin-signup'>SignIn/Signup <span class="sr-only">(current)</span></a>
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
-      </form>
+  <section class="ftco-cover ftco-slant" style="background-image: url(images/hero-bg.jpg);" id="section-home">
+    <div class="container">
+      <div class="row align-items-center justify-content-center text-center ftco-vh-100">
+        <div class="col-md-10">
+          <h1 class="ftco-heading ftco-animate">Get The Latest Updates.</h1>
+          <h2 class="h5 ftco-subheading mb-5 ftco-animate">By NewsApp</h2>
+          <p>
+            <a href="#" target="_self" class="btn btn-primary ftco-animate">Get Started</a>
+            <!-- <a href="/register" target="_self" class="btn btn-primary ftco-animate">SignUp</a> -->
+          </p>
+        </div>
+      </div>
     </div>
-  </nav>
-  <!-- navbar ends -->
-  <!-- main content -->
-  <div class="container">
-    <div class="row main-content">
-      <div class="col-md-8">
-        <h1>Category: Chatbot Development</h1>
-        <hr>
-     <div class="card border-0">
-          <div class="p-2">
-            <h3>How much Does it Cost to Develop Chatbot?</h3>
-          </div>
-          <div class="card-header text-white d-md-flex justify-content-between align-items-center">
-            <div>
-              <img class="img-fluid rounded-circle" src="https://placehold.it/40x40">
-              <span>By Ajay Marathe on 11 April 2019</span>
+  </section>
+
+
+  <section class="ftco-section bg-light  ftco-slant ftco-slant-dark" id="section-features">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-12 text-center mb-5 ftco-animate">
+          <h2 class="text-uppercase ftco-uppercase">Our Awesome Features</h2>
+          <div class="row justify-content-center">
+            <div class="col-md-7">
+              <p class="lead">Any update isn't far away.</p>
             </div>
-            <p class="d-inline-block m-0"> <i class="fa fa-tags" aria-hidden="true"></i> Chatbot Developement</p>
-          </div>
-            <img class="img-fluid card-img-top" src="../public/photo-1422640805998-18a4dd89bec2-1400x827.jpg">
-          <div class="card-body">
-            <!-- <img src="https://placehold.it/550x250"> -->
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <a href="#" class="btn btn-success">Read More</a>
           </div>
         </div>
-        <hr>
-        <div class="card border-0">
-          <div class="p-2">
-            <h3>How much Does it Cost to Develop Chatbot?</h3>
-          </div>
-          <div class="card-header bg-info text-white d-md-flex justify-content-between align-items-center">
-            <div>
-              <img class="img-fluid rounded-circle" src="https://placehold.it/40x40">
-              <span>By Ajay Marathe on 11 April 2019</span>
+        <div class="col-lg-4 col-md-6">
+          <div class="media d-block mb-4 text-center ftco-media p-md-5 p-4 ftco-animate">
+            <div class="ftco-icon mb-3"><span class="oi oi-thumb-up display-4 text-muted"></span></div>
+            <div class="media-body">
+              <h5 class="mt-0">News</h5>
+              <p class="mb-5">Get answer to a number of blogs and share your ideas over it.</p>
+              <p class="mb-0"><a href="#" class="btn btn-primary btn-sm">Browse</a></p>
             </div>
-            <p class="d-inline-block m-0"> <i class="fa fa-tags" aria-hidden="true"></i> Chatbot Developement</p>
-          </div>
-            <img class="img-fluid card-img-top" src="img/first-post.jpg">
-          <div class="card-body">
-            <!-- <img src="https://placehold.it/550x250"> -->
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <a href="#" class="btn btn-success">Read More</a>
           </div>
         </div>
-        <hr>
-        <div class="card border-0">
-          <div class="p-2">
-            <h3>How much Does it Cost to Develop Chatbot?</h3>
-          </div>
-          <div class="card-header bg-info text-white d-md-flex justify-content-between align-items-center">
-            <div>
-              <img class="img-fluid rounded-circle" src="https://placehold.it/40x40">
-              <span>By Ajay Marathe on 11 April 2019</span>
+        <div class="col-lg-4 col-md-6">
+          <div class="media d-block mb-4 text-center ftco-media p-md-5 p-4 ftco-animate">
+            <div class="ftco-icon mb-3"><span class="oi oi-bolt display-4 text-muted"></span></div>
+            <div class="media-body">
+              <h5 class="mt-0">Share News</h5>
+              <p class="mb-5">Share latest news on portal with your coworkers and a huge number of people.</p>
+              <p class="mb-0"><a href="#" class="btn btn-primary btn-sm">Try It Now</a></p>
             </div>
-            <p class="d-inline-block m-0"> <i class="fa fa-tags" aria-hidden="true"></i> Chatbot Developement</p>
           </div>
-            <img class="img-fluid card-img-top" src="img/first-post.jpg">
-          <div class="card-body">
-            <!-- <img src="https://placehold.it/550x250"> -->
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <a href="#" class="btn btn-success">Read More</a>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="media d-block mb-4 text-center ftco-media p-md-5 p-4 ftco-animate">
+            <div class="ftco-icon mb-3"><span class="oi oi-person display-4 text-muted"></span></div>
+            <div class="media-body">
+              <h5 class="mt-0">Develop Your Profile</h5>
+              <p class="mb-5">Share latest news to increase followers and follow your favourite people.</p>
+              <p class="mb-0"><a href="#" class="btn btn-primary btn-sm">Learn More</a></p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-   <div class="footer py-3 bg-light w-100 text-center">
-      <p>2019 © <a href="http://bootcatch.com" target="_blank">bootcatch Team</a> , made with love for bootstrap lovers</p>
-  </div>
-  <!-- main-content ends here -->
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </section>
+  <!-- END section -->
+
+    <!--Footer Starts-->
+    <%-include('partials/footer')%>
+    <!---Footer Ends-->
+
+
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+      <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+      <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+        stroke="#4586ff" /></svg></div>
+
+
+  <script src="/js/index/jquery.min.js"></script>
+  <script src="/js/index/popper.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/index/jquery.easing.1.3.js"></script>
+  <script src="/js/index/jquery.waypoints.min.js"></script>
+  <script src="/js/index/owl.carousel.min.js"></script>
+  <script src="/js/index/jquery.animateNumber.min.js"></script>
+  <script src="/js/index/main.js"></script>
+
 
 </body>
+
 </html>
