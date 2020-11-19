@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const jwt = require('jsonwebtoken')
 const User = require('../models/user')
-const isLoggedIn = require('../utils/isLoggedIn')
+const isLoggedIn = require('../middleware/isLoggedIn')
 const userAuth = require('../middleware/userAuth')
 
 router.get('/login', async (req, res) => {
