@@ -4406,6 +4406,7 @@ input[type=button].btn-block {
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 1rem;
+  background-color: #3ea0b9;
 }
 
 .navbar > .container,
@@ -4849,7 +4850,7 @@ input[type=button].btn-block {
 .card-header {
   padding: 0.75rem 1.25rem;
   margin-bottom: 0;
-  background-color: rgba(0, 0, 0, 0.03);
+  background-color: rgb(42, 136, 153);
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 
