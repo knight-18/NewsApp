@@ -7,18 +7,30 @@ const userAuth = require('../middleware/userAuth')
 const Post = require('../models/Post/post')
 const user = require('../models/user')
 
-router.get('/login', async (req, res) => {
-    try {
-        let alreadyLoggedIn = await isLoggedIn(req, res)
-        if (!alreadyLoggedIn) {
+router.get('/login', isLoggedIn, async (req, res) => {
+    // try {
+    //     let alreadyLoggedIn = await isLoggedIn(req, res)
+    //     if (!alreadyLoggedIn) {
+    //         res.render('userLogin')
+    //         return
+    //     }
+    //     res.redirect('/')
+    // } catch (error) {
+    //     console.log(error)
+    //     res.render('userLogin')
+    // }
+
+    try{
+        if(req.loginstatus)
+            res.redirect('/profile')
+        else
             res.render('userLogin')
-            return
-        }
-        res.redirect('/')
-    } catch (error) {
-        console.log(error)
-        res.render('userLogin')
+        
+    } catch(err){
+        console.log(err)
+        res.render('userLogin')   
     }
+     
 })
 
 router.post('/login', async (req, res) => {
@@ -95,13 +107,18 @@ router.post('/signup', async (req, res) => {
 
 router.get('/profile', userAuth, async (req, res) => {
     try {
+
+
         let user = req.user
+
+        if(user){
         let posts = await user.populate('posts').execPopulate()
         // console.log(posts)
         console.log(user)
         res.render('userProfile', {
             user,
-        })
+        })}
+        else res.redirect('/login')
     } catch (error) {
         console.log(error)
         res.redirect('/')
