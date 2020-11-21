@@ -20,17 +20,13 @@ router.get('/login', isLoggedIn, async (req, res) => {
     //     res.render('userLogin')
     // }
 
-    try{
-        if(req.isLoggedIn)
-            res.redirect('/user/profile')
-        else
-            res.render('userLogin')
-        
-    } catch(err){
+    try {
+        if (req.isLoggedIn) res.redirect('/user/profile')
+        else res.render('userLogin')
+    } catch (err) {
         console.log(err)
-        res.render('userLogin')   
+        res.render('userLogin')
     }
-     
 })
 
 router.post('/login', async (req, res) => {
@@ -62,16 +58,25 @@ router.get('/logout', (req, res) => {
     res.redirect('/')
 })
 
-router.get('/signup', async (req, res) => {
+router.get('/signup', isLoggedIn, async (req, res) => {
+    // try {
+    //     let alreadyLoggedIn = await isLoggedIn(req, res)
+    //     if (!alreadyLoggedIn) {
+    //         res.render('userSignup')
+    //         return
+    //     }
+    //     res.redirect('/')
+    // } catch (error) {
+    //     console.log(error)
+    //     res.render('userSignup')
+    // }
     try {
-        let alreadyLoggedIn = await isLoggedIn(req, res)
-        if (!alreadyLoggedIn) {
+        if (req.isLoggedIn) 
+            res.redirect('/user/profile')
+        else 
             res.render('userSignup')
-            return
-        }
-        res.redirect('/')
-    } catch (error) {
-        console.log(error)
+    } catch (err) {
+        console.log(err)
         res.render('userSignup')
     }
 })
@@ -107,18 +112,16 @@ router.post('/signup', async (req, res) => {
 
 router.get('/profile', userAuth, async (req, res) => {
     try {
-
-
         let user = req.user
 
-        if(user){
-        let posts = await user.populate('posts').execPopulate()
-        // console.log(posts)
-        console.log(user)
-        res.render('userProfile', {
-            user,
-        })}
-        else res.redirect('/login')
+        if (user) {
+            let posts = await user.populate('posts').execPopulate()
+            // console.log(posts)
+            console.log(user)
+            res.render('userProfile', {
+                user,
+            })
+        } else res.redirect('/login')
     } catch (error) {
         console.log(error)
         res.redirect('/')
