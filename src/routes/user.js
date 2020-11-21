@@ -72,7 +72,7 @@ router.get('/signup', isLoggedIn, async (req, res) => {
     // }
     try {
         if (req.isLoggedIn) 
-            res.redirect('/user/profile')
+            res.redirect('/')
         else 
             res.render('userSignup')
     } catch (err) {
