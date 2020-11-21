@@ -23,10 +23,10 @@ router.get('/login', isLoggedIn, async (req, res) => {
     try {
         if (req.isLoggedIn) 
             res.redirect('/user/profile')
-        else res.render('userLogin')
+        else res.render('userSignup')
     } catch (err) {
         console.log(err)
-        res.render('userLogin')
+        res.render('userSignup')
     }
 })
 
@@ -88,7 +88,7 @@ router.post('/signup', async (req, res) => {
 
         let alreadyExists = await User.findOne({ email })
         if (alreadyExists) {
-            res.redirect('/user/signup')
+            res.redirect('/user/login')
             return
         }
         let user = new User({
