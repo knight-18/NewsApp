@@ -21,8 +21,9 @@ router.get('/login', isLoggedIn, async (req, res) => {
     // }
 
     try {
-        if (req.isLoggedIn) res.redirect('/user/profile')
-        else return res.render('userLogin')
+        if (req.isLoggedIn) 
+            res.redirect('/user/profile')
+        else res.render('userLogin')
     } catch (err) {
         console.log(err)
         res.render('userLogin')
@@ -58,16 +59,25 @@ router.get('/logout', (req, res) => {
     res.redirect('/')
 })
 
-router.get('/signup', async (req, res) => {
+router.get('/signup', isLoggedIn, async (req, res) => {
+    // try {
+    //     let alreadyLoggedIn = await isLoggedIn(req, res)
+    //     if (!alreadyLoggedIn) {
+    //         res.render('userSignup')
+    //         return
+    //     }
+    //     res.redirect('/')
+    // } catch (error) {
+    //     console.log(error)
+    //     res.render('userSignup')
+    // }
     try {
-        let alreadyLoggedIn = await isLoggedIn(req, res)
-        if (!alreadyLoggedIn) {
+        if (req.isLoggedIn) 
+            res.redirect('/')
+        else 
             res.render('userSignup')
-            return
-        }
-        res.redirect('/')
-    } catch (error) {
-        console.log(error)
+    } catch (err) {
+        console.log(err)
         res.render('userSignup')
     }
 })
