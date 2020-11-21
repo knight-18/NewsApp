@@ -21,8 +21,8 @@ router.get('/login', isLoggedIn, async (req, res) => {
     // }
 
     try{
-        if(req.loginstatus)
-            res.redirect('/profile')
+        if(req.isLoggedIn)
+            res.redirect('/user/profile')
         else
             res.render('userLogin')
         

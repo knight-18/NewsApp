@@ -6,25 +6,23 @@ module.exports = isLoggedIn = async (req, res, next) => {
         let token = req.cookies.authorization
 
         if (!token) {
-            req.loginStatus = false
+            isLoggedIn = false
+            next()
         }
 
         let decodedData = jwt.verify(token, process.env.JWT_SECRET)
 
-        if (!decodedData) 
-            req.loginStatus = false
-        else
-        {
-            req.loginStatus = true
-         }
-
+        if (!decodedData) {
+            req.isLoggedIn = false
+            next()
+        } else {
+            req.isLoggedIn = true
+            next()
+        }
         next()
     } catch (error) {
         console.log(error)
         req.loginStatus = false
         next()
     }
-    
 }
-
-
