@@ -20,17 +20,13 @@ router.get('/login', isLoggedIn, async (req, res) => {
     //     res.render('userLogin')
     // }
 
-    try{
-        if(req.isLoggedIn)
-            res.redirect('/user/profile')
-        else
-            res.render('userLogin')
-        
-    } catch(err){
+    try {
+        if (req.isLoggedIn) res.redirect('/user/profile')
+        else return res.render('userLogin')
+    } catch (err) {
         console.log(err)
-        res.render('userLogin')   
+        res.render('userLogin')
     }
-     
 })
 
 router.post('/login', async (req, res) => {
@@ -107,18 +103,16 @@ router.post('/signup', async (req, res) => {
 
 router.get('/profile', userAuth, async (req, res) => {
     try {
-
-
         let user = req.user
 
-        if(user){
-        let posts = await user.populate('posts').execPopulate()
-        // console.log(posts)
-        console.log(user)
-        res.render('userProfile', {
-            user,
-        })}
-        else res.redirect('/login')
+        if (user) {
+            let posts = await user.populate('posts').execPopulate()
+            // console.log(posts)
+            console.log(user)
+            res.render('userProfile', {
+                user,
+            })
+        } else res.redirect('/login')
     } catch (error) {
         console.log(error)
         res.redirect('/')
