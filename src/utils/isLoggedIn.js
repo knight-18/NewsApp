@@ -1,28 +1,28 @@
 const jwt = require('jsonwebtoken')
 const User = require('../models/user')
 
-module.exports = isLoggedIn = async (req, res) => {
+module.exports = isLoggedIn = async (req, res, next) => {
     try {
         let token = req.cookies.authorization
 
         if (!token) {
-            return false
+            isLoggedIn = false
+            next()
         }
 
         let decodedData = jwt.verify(token, process.env.JWT_SECRET)
 
         if (!decodedData) {
-            return false
+            req.isLoggedIn = false
+            next()
+        } else {
+            req.isLoggedIn = true
+            next()
         }
-
-        let user = await User.findById(decodedData.id)
-        if (!user) {
-            return false
-        }
-
-        return true
+        next()
     } catch (error) {
         console.log(error)
-        return false
+        req.loginStatus = false
+        next()
     }
 }

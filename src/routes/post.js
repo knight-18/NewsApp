@@ -15,10 +15,11 @@ router.get('/', async (req, res) => {
     }
 })
 
-router.post('/', userAuth, async (req, res) => {
+router.post('/', userAuth , async (req, res) => {
     let { title, description, location } = req.body
 
     try {
+        
         const post = new Post({
             title,
             description,

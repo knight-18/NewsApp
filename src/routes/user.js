@@ -7,17 +7,26 @@ const userAuth = require('../middleware/userAuth')
 const Post = require('../models/Post/post')
 const user = require('../models/user')
 
-router.get('/login', async (req, res) => {
+router.get('/login', isLoggedIn, async (req, res) => {
+    // try {
+    //     let alreadyLoggedIn = await isLoggedIn(req, res)
+    //     if (!alreadyLoggedIn) {
+    //         res.render('userLogin')
+    //         return
+    //     }
+    //     res.redirect('/')
+    // } catch (error) {
+    //     console.log(error)
+    //     res.render('userLogin')
+    // }
+
     try {
-        let alreadyLoggedIn = await isLoggedIn(req, res)
-        if (!alreadyLoggedIn) {
-            res.render('userSignup')
-            return
-        }
-        res.redirect('/')
-    } catch (error) {
-        console.log(error)
-        res.render('userSignup')
+        if (req.isLoggedIn) 
+            res.redirect('/user/profile')
+        else res.render('userLogin')
+    } catch (err) {
+        console.log(err)
+        res.render('userLogin')
     }
 })
 
@@ -50,16 +59,25 @@ router.get('/logout', (req, res) => {
     res.redirect('/')
 })
 
-router.get('/signup', async (req, res) => {
+router.get('/signup', isLoggedIn, async (req, res) => {
+    // try {
+    //     let alreadyLoggedIn = await isLoggedIn(req, res)
+    //     if (!alreadyLoggedIn) {
+    //         res.render('userSignup')
+    //         return
+    //     }
+    //     res.redirect('/')
+    // } catch (error) {
+    //     console.log(error)
+    //     res.render('userSignup')
+    // }
     try {
-        let alreadyLoggedIn = await isLoggedIn(req, res)
-        if (!alreadyLoggedIn) {
+        if (req.isLoggedIn) 
+            res.redirect('/')
+        else 
             res.render('userSignup')
-            return
-        }
-        res.redirect('/')
-    } catch (error) {
-        console.log(error)
+    } catch (err) {
+        console.log(err)
         res.render('userSignup')
     }
 })
@@ -96,12 +114,15 @@ router.post('/signup', async (req, res) => {
 router.get('/profile', userAuth, async (req, res) => {
     try {
         let user = req.user
-        let posts = await user.populate('posts').execPopulate()
-        // console.log(posts)
-        console.log(user)
-        res.render('userProfile', {
-            user,
-        })
+
+        if (user) {
+            let posts = await user.populate('posts').execPopulate()
+            // console.log(posts)
+            console.log(user)
+            res.render('userProfile', {
+                user,
+            })
+        } else res.redirect('/login')
     } catch (error) {
         console.log(error)
         res.redirect('/')
