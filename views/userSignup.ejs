@@ -62,16 +62,16 @@
                             </div> -->
                             <div class="group">
                                 <label for="login" class="label">Email</label>
-                                <input type="text" name="email" class="input" ng-model="login">
+                                <input type="email" name="email" class="input" ng-model="login" required>
                             </div>
                             <div class="group">
                                 <label for="pwd" class="label">Password</label>
-                                <input type="password" name="password" ng-model="pwd" class="input" data-type="password">
+                                <input type="password" name="password" ng-model="pwd" class="input" data-type="password" required>
                             </div>
                             <div class="group">
                                 <button type="submit" class="button">Sign In</button>
                             </div>
-                            <!-- <div class="group">
+                            <!-- <div class="group">  
                                 <input type="submit" class="button" value="Sign In" ng-click="loginaction()">
                             </div> -->
                         </section>
@@ -91,7 +91,7 @@
                         </div>
                         <div class="group">
                             <label for="pass" class="label">Password</label>
-                            <input id="pass" type="password" class="input" data-type="password" required>
+                            <input id="pass" type="password" class="input" data-type="password" name="password" required>
                         </div>
                         <div class="group">
                             <label for="rpt-pass" class="label">Confirm Password</label>
